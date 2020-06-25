@@ -1,6 +1,7 @@
 const {
     User
 } = require('../models');
+const bcrypt = require('bcrypt');
 
 exports.userslist = async (req, res) => {
     try {
@@ -44,6 +45,7 @@ exports.userlist = async (req, res) => {
 
     try {
         const user = await User.findById(req.params.id);
+
         res.status(200).json({
             status: 'success',
             data: {
@@ -66,7 +68,6 @@ exports.userUpdate = async (req, res) => {
             new: true,
             runValidators: true
         });
-
 
         res.status(200).json({
             status: 'success',
@@ -96,4 +97,16 @@ exports.deleteUser = async (req, res) => {
 
     }
 
+}
+
+
+exports.userLogin = (req, res) => {
+    const user = User.findOne({
+        username: req.body.username
+    });
+
+    bcrypt.compare('req.body.password', user.password, (err, matched) => {
+        if (err) throw new Error("Password failed to match")
+        console.log("Password matched");
+    })
 }

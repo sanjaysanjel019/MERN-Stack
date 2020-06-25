@@ -1,4 +1,3 @@
-// const {userlist,createUser} = require('../controller/user');
 const controller = require('../controller');
 module.exports = (app) => {
 

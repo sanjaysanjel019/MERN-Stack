@@ -1,4 +1,12 @@
-const {logger} = require('./logger');
+const {
+    logger
+} = require('./logger');
+const {
+    auth
+} = require('./auth');
 
 
-module.exports = {logger};
+module.exports = {
+    logger,
+    auth
+};

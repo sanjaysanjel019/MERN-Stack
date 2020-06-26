@@ -11,6 +11,11 @@ const UserSchema = new Schema({
 	password: {
 		type: String,
 		required: 'Password is required'
+	},
+	userType: {
+		type: String,
+		enum: ['Customer', 'Business', 'SuperUser'],
+		default: "Customer",
 	}
 }, {
 	timestamps: true

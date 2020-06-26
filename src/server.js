@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const {
-  logger
+  logger,
+  auth
 } = require('./middleware');
 const {
   APP_PORT,
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 app.use(logger);
+// app.use(auth);
 
 //Mongoose Connection
 mongoose.Promise = global.Promise;

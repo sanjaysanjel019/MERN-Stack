@@ -1,2 +1,4 @@
 /node_modules
-/async.js
+async.js
+/src/
+/config/index.js

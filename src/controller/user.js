@@ -15,6 +15,11 @@ const {
 
 exports.userslist = async (req, res) => {
     try {
+
+        const test = {
+            ...req.query
+        }
+        console.log(test);
         const users = await User.find();
         res.status(201).json({
             status: "success",

@@ -13,7 +13,6 @@ exports.auth = async (req, res, next) => {
     Get autorization header from request and then check it. We then verify our JWT.
     */
     const authorization = req.headers.authorization;
-    console.log(headerData);
 
     if (req.path == "/api/login") {
         next();
@@ -35,4 +34,8 @@ exports.auth = async (req, res, next) => {
         throw new Error("User not found");
     }
     next();
+}
+
+exports.roleCheker = (roles) => (req, res, next) => {
+    console.log("roles=======", roles);
 }

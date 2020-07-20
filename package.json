@@ -19,5 +19,8 @@
     "mongoose": "^5.9.18",
     "nodemon": "^2.0.4",
     "superagent": "^5.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.6"
   }
 }

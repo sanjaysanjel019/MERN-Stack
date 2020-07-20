@@ -3,7 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const {
   logger,
-  auth
+  auth,
+  roleChecker
 } = require('./middleware');
 const {
   APP_PORT,
@@ -36,6 +37,9 @@ app.use(express.static(__dirname + '/assets'));
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 
 require('./routes/')(app);
